@@ -4,11 +4,11 @@ import registerPhoto from '../assets/register.svg'
 import RegisterForm from '../components/RegisterForm'
 import { useNavigate } from 'react-router-dom'
 import RegisterStep1 from '../components/RegisterStep1'
+import LoginForm from '../components/LoginForm'
 
 
-export const RegisterPage = () => {
+export const LoginPage = () => {
     const navigate = useNavigate();
-    const [step, setStep] = useState(1);
     return (
         <div className='generalPage'>
             <div className='designRegister'>
@@ -18,8 +18,7 @@ export const RegisterPage = () => {
 
             </div>
 
-            {step === 1 && <RegisterStep1 setStep={setStep} />}
-            {step === 2 && <RegisterForm />}
+         <LoginForm />
 
 
         </div>

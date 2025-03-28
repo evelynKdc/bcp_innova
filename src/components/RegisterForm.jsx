@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterForm() {
+    const navigate = useNavigate(); 
+
     const [formData, setFormData] = useState({
         edad: "",
         ocupacion: "",
         ingreso: "",
         motivacion: "",
-        objetivo: "",
     });
 
     const handleChange = (e) => {
@@ -16,6 +18,7 @@ export default function RegisterForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData);
+        navigate("/intranet")
     };
 
     return (
@@ -60,7 +63,7 @@ export default function RegisterForm() {
                 </div>
 
                 <div className="campo">
-                    <label>¿Cuál es tu motivación principal?</label>
+                    <label>¿Cuál es tu objetivo financiero?</label>
                     <select
                         name="motivacion"
                         value={formData.motivacion}
@@ -74,28 +77,9 @@ export default function RegisterForm() {
                     </select>
                 </div>
 
-                <div className="campo">
-                    <label>¿Cuál es tu objetivo?</label>
-                    <select
-                        name="objetivo"
-                        value={formData.objetivo}
-                        onChange={handleChange}
-                        required
-                    >
-                        <option value="" disabled>Selecciona una opción</option>
-                        <option value="Aprender estrategias para salir de deudas y mejorar mi situación financiera.">
-                            Aprender estrategias para salir de deudas y mejorar mi situación financiera.
-                        </option>
-                        <option value="Aprender técnicas de ahorro para lograr mis metas financieras.">
-                            Aprender técnicas de ahorro para lograr mis metas financieras.
-                        </option>
-                        <option value="Aprender sobre inversiones para hacer crecer mi negocio.">
-                            Aprender sobre inversiones para hacer crecer mi negocio.
-                        </option>
-                    </select>
-                </div>
 
-                <button type="submit" className="btn-submit">Continuar</button>
+
+                <button type="submit" className="btn-submit">Comenzar</button>
             </form>
         </div>
     );
